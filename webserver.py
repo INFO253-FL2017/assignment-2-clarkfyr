@@ -43,8 +43,8 @@ def send_email():
     email = request.form["Email"]
     subject = request.form["Subject"]
     message = request.form["Message"]
-    print("Name: " + name + "\n" + "Email: " + email + "\n" +
-          "Subject: " + subject + "\n" + "Message: " + message)
+    # print("Name: " + name + "\n" + "Email: " + email + "\n" +
+    #       "Subject: " + subject + "\n" + "Message: " + message)
     notifications = []
     data = {
         'from': os.environ["INFO253_MAILGUN_FROM_EMAIL"],
@@ -63,7 +63,7 @@ def send_email():
         notifications.append("Hi " + name + ", your message has been sent")
     else:
         notifications.append("You email was not sent. Please try again later")
-    print(r.status_code, notifications)
+    # print(r.status_code, notifications)
     return render_template("contact_me.html", notifications=notifications)
 
 
